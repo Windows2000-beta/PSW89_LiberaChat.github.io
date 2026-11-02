@@ -1,0 +1,176 @@
+from pathlib import Path
+
+html = r'''<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050a08">
+<title>PSW89 // ACCESS NODE</title>
+<style>
+:root{
+  --bg:#050a08;--panel:rgba(7,18,13,.88);--green:#7cff9b;
+  --dim:#75a887;--line:rgba(124,255,155,.28);--glow:0 0 12px rgba(90,255,135,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:#d5f6dc;
+  font:15px/1.65 "Courier New",monospace;
+  min-height:100vh;overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:5;opacity:.18;
+  background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.42) 3px 4px);
+}
+body:after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(124,255,155,.08) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(124,255,155,.08) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+a{color:var(--green)}
+.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+header{padding:42px 0 24px;border-bottom:1px solid var(--line)}
+.kicker{color:var(--dim);font-size:12px;letter-spacing:3px}
+h1{font-size:clamp(30px,6vw,62px);line-height:1.05;margin:12px 0;color:var(--green);text-shadow:var(--glow);letter-spacing:-2px}
+.subtitle{color:#a5cbb0;max-width:720px}
+.status{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);padding:5px 10px;color:var(--green);font-size:11px;margin-top:14px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 9px var(--green)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:28px 0 14px}
+.section-head h2{margin:0;color:var(--green);font-size:17px;letter-spacing:2px}
+.section-head span{color:var(--dim);font-size:11px}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:var(--panel);border:1px solid var(--line);box-shadow:var(--glow);padding:22px;position:relative}
+.panel:before{content:"";position:absolute;top:-1px;left:18px;width:48px;height:2px;background:var(--green);box-shadow:var(--glow)}
+.lang{font-size:11px;color:var(--dim);letter-spacing:2px;margin-bottom:14px}
+h3{color:var(--green);font-size:16px;margin:18px 0 7px}
+p{margin:8px 0;color:#c3ddca}
+ol{padding-left:22px;margin:10px 0}
+li{padding:4px 0 4px 5px}
+li::marker{color:var(--green)}
+code,.command{color:var(--green);background:#020604;border:1px solid rgba(124,255,155,.2)}
+.command{display:block;padding:11px 12px;margin:8px 0;overflow-wrap:anywhere;font-size:13px}
+.copy{border:1px solid var(--line);background:transparent;color:var(--green);font:inherit;font-size:11px;padding:6px 10px;cursor:pointer}
+.copy:hover{background:rgba(124,255,155,.1)}
+.note{margin-top:20px;padding:16px;border-left:3px solid var(--green);background:rgba(124,255,155,.055)}
+.note strong{color:var(--green)}
+footer{border-top:1px solid var(--line);margin-top:28px;padding:22px 0 36px;color:var(--dim);font-size:12px}
+.footer-grid{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.small{font-size:11px;color:#789b82}
+.blink{animation:blink 1s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+@media(max-width:760px){.columns{grid-template-columns:1fr}.panel{padding:18px}.section-head{align-items:start;flex-direction:column}header{padding-top:30px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">WINEXPERT NETWORK // NODE 089 // EST. 20XX</div>
+  <h1>PSW89<span class="blink">_</span></h1>
+  <div class="subtitle">A small public IRC corner for chatting, testing, technical setup and solving a few unfinished features.</div>
+  <div class="status"><span class="dot"></span> CHANNEL ACCESS: OPEN <span style="color:#789b82">/ PASSWORD REQUIRED</span></div>
+</header>
+
+<div class="section-head">
+  <h2>01 — CONNECTION PROTOCOL</h2>
+  <span>SELECT YOUR LANGUAGE / ВЫБЕРИ СВОЙ ЯЗЫК</span>
+</div>
+
+<main class="columns">
+  <section class="panel">
+    <div class="lang">RU // РУССКАЯ ВЕРСИЯ</div>
+    <h3>Как присоединиться</h3>
+    <p>Канал <strong>PSW89</strong> открыт для всех желающих. Сейчас на нём установлен пароль — исключительно для технической настройки и тестирования отдельных функций.</p>
+    <ol>
+      <li>Подключись к IRC-серверу Libera.Chat:</li>
+    </ol>
+    <span class="command">/connect irc.libera.chat</span>
+    <ol start="2">
+      <li>После подключения зайди в канал <strong>PSW89</strong>, указав пароль:</li>
+    </ol>
+    <span class="command">/join #PSW89 psw89</span>
+    <button class="copy" data-copy="/connect irc.libera.chat">КОПИРОВАТЬ CONNECT</button>
+    <button class="copy" data-copy="/join #PSW89 psw89">КОПИРОВАТЬ JOIN</button>
+
+    <h3>Кто здесь главный?</h3>
+    <p><strong>Владелец:</strong> WinEXPERT</p>
+    <p><strong>Альтернативные аккаунты:</strong> Win32 и Winchester.</p>
+
+    <div class="note">
+      <strong>Небольшое уточнение:</strong> не стоит считать себя мега-хакером, который взломал защищённый канал за пять секунд. Пароль намеренно сделан настолько простым — это не испытание на проникновение, а временная техническая мера.
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="lang">EN // ENGLISH VERSION</div>
+    <h3>How to join</h3>
+    <p><strong>PSW89</strong> is a public channel, open to anyone who wants to join. For now, it has a password purely for technical setup and testing a few features.</p>
+    <ol>
+      <li>Connect to the Libera.Chat IRC network:</li>
+    </ol>
+    <span class="command">/connect irc.libera.chat</span>
+    <ol start="2">
+      <li>Once connected, join <strong>#PSW89</strong> using the channel password:</li>
+    </ol>
+    <span class="command">/join #PSW89 psw89</span>
+    <button class="copy" data-copy="/connect irc.libera.chat">COPY CONNECT</button>
+    <button class="copy" data-copy="/join #PSW89 psw89">COPY JOIN</button>
+
+    <h3>Who's in charge?</h3>
+    <p><strong>Owner:</strong> WinEXPERT</p>
+    <p><strong>Alternative accounts:</strong> Win32 and Winchester.</p>
+
+    <div class="note">
+      <strong>One small clarification:</strong> don't assume you're some kind of elite hacker who cracked a heavily protected channel in five seconds. The password is intentionally this simple — it's not a security challenge, just a temporary technical measure.
+    </div>
+  </section>
+</main>
+
+<div class="section-head">
+  <h2>02 — DEVELOPMENT STATUS</h2>
+  <span>UNDER CONSTRUCTION</span>
+</div>
+<section class="panel">
+  <div class="columns">
+    <div>
+      <div class="lang">RU // О САЙТЕ</div>
+      <p>Небольшая честная ремарка: эта версия сайта создана с помощью нейросети, поскольку у автора сейчас недостаточно свободного времени на полноценную разработку.</p>
+      <p>Когда свободного времени станет больше, автор планирует полностью переписать сайт — от структуры до визуального оформления.</p>
+    </div>
+    <div>
+      <div class="lang">EN // ABOUT THIS WEBSITE</div>
+      <p>A quick note: this version of the website was made with the help of AI because the author currently doesn't have enough free time for a full development cycle.</p>
+      <p>Once there's enough time, the author plans to rewrite the entire website — from its structure to its visual design.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <span>PSW89 // LIBERA.CHAT</span>
+    <span>MADE IN THE TERMINAL AGE <span class="blink">█</span></span>
+  </div>
+  <div class="small" style="margin-top:10px">This page is an informational landing page. The channel itself is public; the password is temporary.</div>
+</footer>
+</div>
+<script>
+document.querySelectorAll("[data-copy]").forEach(button=>{
+  button.addEventListener("click",async()=>{
+    const original=button.textContent;
+    try{
+      await navigator.clipboard.writeText(button.dataset.copy);
+      button.textContent="COPIED ✓";
+    }catch{
+      button.textContent="COPY UNAVAILABLE";
+    }
+    setTimeout(()=>button.textContent=original,1400);
+  });
+});
+</script>
+</body>
+</html>'''
+
+path = Path("/mnt/data/psw89_matrix_2077.html")
+path.write_text(html, encoding="utf-8")
+print(f"Created: {path} ({path.stat().st_size:,} bytes)")
